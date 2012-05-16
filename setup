@@ -1,0 +1,23 @@
+#!/bin/bash
+
+if [[ -n $(is_setup) ]]; then
+    cat <<EOS
+Pair environment already set up.
+Run 'pair delete' if you want to start over.
+EOS
+    exit 1
+fi
+
+# Clone the ... app code, and the dot file repos
+git clone https://ingydotnet@github.com/ingydotnet/....git
+mkdir src
+cd src
+git clone https://ingydotnet@github.com/ingydotnet/dotdotdot.git
+cd
+# Config ... and install dot files
+cat <<EOS > ./.../conf
+dot_paths:
+- path: /app/fs/home/src/dotdotdot
+install_method: symlink
+EOS
+./.../bin/... install

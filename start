@@ -1,0 +1,9 @@
+#!/bin/bash
+
+if [[ $(ps aux | grep -c '[t]mux') -eq 0 ]]; then
+    command='tmux'
+else
+    command='tmux a'
+fi
+
+exec /bin/bash -c "$command"
